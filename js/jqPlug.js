@@ -26,24 +26,31 @@
                 event.stopPropagation();  //阻止冒泡
             };
             elmen.attr("dialog","true");
-            elmen.wrapAll("<div class=\"Lst_dialog_wrap\" dialog-toggle></div>");
+            let str = elm + '_dialog_wrap'
+            if($(str).length==0){
+                let notDotStr = str.slice(1,str.length)
+                let elmstr = "<div class="+ notDotStr+" dialog-toggle='true' style='position:fixed;top:0;bottom:0;right:0;left:0;background:rgba(0,0,0,0.3);'></div>";
+                elmen.wrapAll(elmstr);
+            }else{
+                $(str).attr("dialog-toggle","true");
+            }
             elmen.css({background:"#fff",margin:"15px auto",borderRadius:"5px"});
             elmen.css("width",width + 'px');
-            $('[dialog-toggle]').on("click",function(){
-                event.stopPropagation();  //阻止冒泡
-                $.hiddenDialog();
-            });
-        },
-        hiddenDialog:function(){
-            let div;
-            if($(".dialog-warp-contact").length !=0){
-                div = $(".dialog-warp-contact");
-            }else{
-                div = $('<div class="dialog-warp-contact"></div>');
+            let arr = $('[dialog-toggle]')
+            for(let i = 0;i<arr.length;i++){
+                i = i.toString();
+                arr[i].onclick = function(){
+                    event.stopPropagation();  //阻止冒泡
+                    $.hiddenDialog(arr[i]);
+                }
             }
-            $('.Lst_dialog_wrap > div').attr("dialog","false");
-            div[0].innerHTML = $('.Lst_dialog_wrap')[0].innerHTML;
-            $('.Lst_dialog_wrap').replaceWith(div);
+        },
+        hiddenDialog:function(el){
+            if(el.nodeName == "BUTTON"){
+                $(el.offsetParent).attr("dialog-toggle","false");
+            }else if(el.nodeName == "DIV"){
+                $(el).attr("dialog-toggle","false");
+            }
         }
 	})
 })(jQuery);

@@ -23,15 +23,11 @@
 [dialog='true']{
 	display: block;
 }
-.Lst_dialog_wrap{
-	display:block;
-	position:fixed;
-	top:0;
-	bottom:0;
-	right:0;
-	left:0;
-	background:rgba(0,0,0,0.3);
-	z-index: 10;
+[dialog-toggle~='false']{
+	display: none;
+}
+[dialog-toggle~='true']{
+	display: block;
 }
 .dialogBody{
 	padding:15px;

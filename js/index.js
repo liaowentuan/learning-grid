@@ -6,7 +6,10 @@ var app = angular.module('App',['ui.grid','ui.grid.selection','ui.grid.edit', 'u
         $.LstDialog(".monitorDialog2222",200)
     };
     $scope.test = () => {
-        console.log("点击了1111");
+        $.LstDialog(".monitorDialog",400);
+    };
+    $scope.test2 = () => {
+        $.LstDialog(".monitorDialog333",600);
     }
     $scope.num = 10;
     $scope.gridOptions = {
