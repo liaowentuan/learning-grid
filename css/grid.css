@@ -1,0 +1,31 @@
+.ui-grid-pager-control .ui-grid-pager-max-pages-number {
+    vertical-align: text-top;
+}
+.ui-grid-grid-footer {
+    position: absolute;
+    width: 18%;
+    bottom: 8px;
+    right: -5px;
+}
+.ui-grid-pager-control input {
+    height:14px;
+}
+div.ui-grid-cell .my-checkBox-item > input, .my-checkBox-item > input{
+    margin: 0 20px;
+    position: relative;
+    top: -4px;
+}
+.my-checkBox-item > input {margin :5px 3px 4px;top:0}
+
+.my-ui-grid-pager-container {
+  float: right;
+  margin-right:5px;
+}
+.focus{
+    color:red !important;
+    line-height: 12px !important;
+}
+.default{
+    color:blue !important;
+    line-height: 12px !important;
+}

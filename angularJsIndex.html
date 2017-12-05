@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="App">
+<head>
+    <meta charset="UTF-8">
+    <title>grid</title>
+    <link rel="stylesheet" href="node_modules/angular-ui-grid/ui-grid.css">
+    <link rel="stylesheet" type="text/css" href="css/jqPlugs.css">
+    <script src="js/angular.js"></script>
+    <script src="js/plugs.js"></script>
+    <script src="node_modules/angular-ui-grid/ui-grid2.js"></script>
+    <script src="js/index.js"></script>
+    <link rel="stylesheet" href="css/grid.css">
+    <script src="js/jquery.js"></script>
+    <script src="js/jqPlug.js"></script>
+</head>
+<body ng-controller="mainCtrl">
+    <div>
+        {{row.entity.name}}
+        <div>
+            直接显示 =》 {{num}}
+            <br>
+            在gridApi.grid.appScope 里面取到 =》{{gridApi.grid.appScope.num}}
+            <br>
+            gridApi.grid.appScope 等效于ng框架中的scope
+            <br>
+            {{row.entity.name}}
+        </div>
+        <div class="grid-tool">
+            <button ng-click="showDialog()">提交</button>
+            <button ng-disabled="false">删除</button>
+        </div>
+        <div class="grid">
+            <div ui-grid="gridOptions" ui-grid-edit ui-grid-pagination
+                 ui-grid-selection ui-grid-exporter ui-grid-resize-columns ui-grid-auto-resize grid-auto-height></div>
+        </div>
+        <div>
+            <input type="text" ng-model="num" hello>
+        </div>
+        <text></text>
+        {{colContainer.getViewportStyle()}}
+        <div class="monitorDialog2222" dialog="false"><!--需写明dialog="false"-->
+            <div class="dialogTitle"><!--header 需要有class='dialogTitle'-->
+                <i class="ui-grid-icon-blank"></i>导入用户信息
+            </div>
+            <div class="dialogBody"><!--body 需要有class='dialogBody'-->
+                <div class="monitor">
+                    <table border="1px">
+                        <tr>
+                            <td ng-click="test()">1111</td>
+                            <td>222</td>
+                            <td>333</td>
+                        </tr>
+                        <tr>
+                            <td>444</td>
+                            <td>555</td>
+                            <td>666</td>
+                        </tr>
+                        <tr>
+                            <td>777</td>
+                            <td>888</td>
+                            <td>999</td>
+                        </tr>
+                        <tr>
+                            <td>000</td>
+                            <td>000</td>
+                            <td>---</td>
+                        </tr>
+                    </table>
+                    <button dialog-toggle>×</button><!--开关按钮增加dialog-toggle就可以控制关闭的开启-->
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
