@@ -7,8 +7,8 @@
             setTimeout(function(){
                 createTips();
                 if(!msg){
+                    $(".alertBody").text("请开发人员检查语法");
                     $.closeTips();
-                    $(".alertBody").text("请开发人员检查语法")
                 }else{
                     $(".alertBody").text(msg)
                 }
@@ -46,10 +46,10 @@
             }
         },
         hiddenDialog:function(el){
-            if(el.nodeName == "BUTTON"){
-                $(el.offsetParent).attr("dialog-toggle","false");
-            }else if(el.nodeName == "DIV"){
+            if(el.nodeName == "DIV"){
                 $(el).attr("dialog-toggle","false");
+            }else{
+                $(el.offsetParent).attr("dialog-toggle","false");
             }
         }
 	})
